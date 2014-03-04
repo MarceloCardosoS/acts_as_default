@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = ActsAsDefault::VERSION
   spec.authors       = ["Mirko Mignini"]
   spec.email         = ["mirko.mignini@libero.it"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Using acts as default you can set a default row in your activerecord collection, also for has_many relationships}
+  spec.description   = ''
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -20,4 +20,6 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.5"
   spec.add_development_dependency "rake"
+  spec.add_development_dependency "activerecord", "~> 4.0.0"
+  spec.add_development_dependency "sqlite3"
 end
