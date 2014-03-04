@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/MirkoMignini/acts_as_default.png?branch=master)](https://travis-ci.org/MirkoMignini/acts_as_default)
-
+[![Coverage Status](https://coveralls.io/repos/MirkoMignini/acts_as_default/badge.png)](https://coveralls.io/r/MirkoMignini/acts_as_default)
 # ActsAsDefault
 
 Using acts as default you can set a default row in your activerecord collection, also for has_many relationships

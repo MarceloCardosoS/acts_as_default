@@ -3,6 +3,9 @@ require 'active_record'
 require 'minitest/autorun'
 require_relative '../lib/acts_as_default'
 require_relative 'test_objects'
+require 'coveralls'
+
+Coveralls.wear!
 
 class TestAll < Minitest::Unit::TestCase
 
