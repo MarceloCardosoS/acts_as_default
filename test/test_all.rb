@@ -4,7 +4,7 @@ require 'minitest/autorun'
 require_relative '../lib/acts_as_default'
 require_relative 'test_objects'
 
-class TestAll < Minitest::Test
+class TestAll < Minitest::Unit::TestCase
 
   def setup
     setup_objects
