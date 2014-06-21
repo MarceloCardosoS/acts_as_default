@@ -69,7 +69,7 @@ module ActsAsDefault
         self.class.where(default: true).first
       else
         key = self.class.field_key
-        self.class.where(["#{key} = ? and default = ?", self[key], true]).first
+        self.class.where(["#{key} = ? and default = true", self[key]]).first
       end
     end
   end
