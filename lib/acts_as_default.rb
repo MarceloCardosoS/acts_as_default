@@ -66,10 +66,10 @@ module ActsAsDefault
 
     def get_default_object
       if self.class.field_key.nil?
-        self.class.where(default: true).first
+        self.class.where(default: 1).first
       else
         key = self.class.field_key
-        self.class.where("#{key} = :key and default = :default", {key: self[key], default: 'true'}).first
+        self.class.where("#{key} = :key and default = :default", {key: self[key], default: 1}).first
       end
     end
   end
