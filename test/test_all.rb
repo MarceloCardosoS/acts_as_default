@@ -24,7 +24,7 @@ class TestAll < Minitest::Unit::TestCase
       p.save!
     end
 
-    assert_equal true, Parent.first.default
+    assert_equal true, Parent.first.default_val
     assert_equal true, contains_one_default?(Parent.all)
   end
 
@@ -48,30 +48,30 @@ class TestAll < Minitest::Unit::TestCase
 
     #check default change to last
     Parent.first.sons.last.set_as_default!
-    assert_equal true, Parent.first.sons.last.default
+    assert_equal true, Parent.first.sons.last.default_val
     assert_equal true, contains_one_default?(Parent.first.sons)
     assert_equal true, contains_one_default?(Parent.last.sons)
 
     #check default change back to first
     Parent.first.sons.first.set_as_default!
-    assert_equal true, Parent.first.sons.first.default
+    assert_equal true, Parent.first.sons.first.default_val
     assert_equal true, contains_one_default?(Parent.first.sons)
     assert_equal true, contains_one_default?(Parent.last.sons)
 
     #check destroy of non default
     Parent.first.sons.last.destroy!
-    assert_equal true, Parent.first.sons.first.default
+    assert_equal true, Parent.first.sons.first.default_val
     assert_equal true, contains_one_default?(Parent.first.sons)
     assert_equal true, contains_one_default?(Parent.last.sons)
 
     #check destroy of default
     Parent.first.sons.first.destroy!
-    assert_equal true, Parent.first.sons.first.default
+    assert_equal true, Parent.first.sons.first.default_val
     assert_equal true, contains_one_default?(Parent.first.sons)
     assert_equal true, contains_one_default?(Parent.last.sons)
   end
 
   def contains_one_default?(collection)
-    collection.where(default: true).size == 1
+    collection.where(default_val: true).size == 1
   end
 end

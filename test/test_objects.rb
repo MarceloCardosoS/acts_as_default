@@ -23,12 +23,12 @@ def setup_objects
 
     create_table :parents, :force => true do |t|
       t.timestamps
-      t.boolean :default
+      t.boolean :default_val
     end
 
     create_table :sons, :force => true do |t|
       t.belongs_to :parent
-      t.boolean :default
+      t.boolean :default_val
       t.timestamps
     end
   end

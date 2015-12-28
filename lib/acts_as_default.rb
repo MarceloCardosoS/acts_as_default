@@ -26,20 +26,20 @@ module ActsAsDefault
     end
 
     def set_as_default!
-      if default == false
-        get_default_object.toggle!(:default)
-        toggle!(:default)
+      if default_val == false
+        get_default_object.toggle!(:default_val)
+        toggle!(:default_val)
       end
     end
 
     private
 
     def check_before_save
-      if self.default
+      if self.default_val
         obj = get_default_object
-        obj.toggle!(:default) if obj and obj.id != id
+        obj.toggle!(:default_val) if obj and obj.id != id
       else
-        self.default = check_if_empty?
+        self.default_val = check_if_empty?
       end
       return true
     end
@@ -48,7 +48,7 @@ module ActsAsDefault
       obj = get_default_object
       if obj.nil?
         obj = get_collection.order(created_at: :desc).first
-        obj.toggle!(:default) if obj
+        obj.toggle!(:default_val) if obj
       end
     end
 
@@ -66,10 +66,10 @@ module ActsAsDefault
 
     def get_default_object
       if self.class.field_key.nil?
-        self.class.where(default: true).first
+        self.class.where(default_val: true).first
       else
         key = self.class.field_key
-        self.class.where(["#{key} = ? and default = true", self[key]]).first
+        self.class.where(["#{key} = ? and default_val = 1", self[key]]).first
       end
     end
   end
